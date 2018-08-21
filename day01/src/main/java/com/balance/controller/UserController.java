@@ -25,13 +25,13 @@ public class UserController {
             subject.login(token);
             User user1=(User) subject.getPrincipal();
             request.getSession().setAttribute("username",user1.getUsername());
-            return "redirect:index";
+            return "redirect:/index";
         } catch (UnknownAccountException e) {
             model.addAttribute("msg","用户名不存在");
-            return "toLogin";
+            return "login";
         }catch (IncorrectCredentialsException e){
             model.addAttribute("msg","密码错误");
-            return "toLogin";
+            return "login";
         }
 
     }
